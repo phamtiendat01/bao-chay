@@ -7,26 +7,86 @@
   height: 48px;
   position: relative;
 } */
-.loader::before , .loader::after{
+:root {
+  --dark-blue: #1f2937;
+  --dark-gray: #374151;
+  --dark-green: #0d9e6d;
+  --light-green: #10b981;
+  --white: #fff;
+  --light-gray: #d1d5db;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+  border-radius: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--medium-gray);
+  border-radius: 2px;
+}
+
+main {
+  min-height: 100vh;
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+.bars::before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 0;
+  width: 26px;
+  height: 3px;
+  transform: rotate(0);
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  opacity: 1;
+  z-index: 9999;
+}
+.bars:first-child::before {
+  top: 30%;
+}
+.bars:nth-child(3):before {
+  top: 70%;
+}
+.bars.bars.active:nth-child(2)::before {
+  opacity: 0;
+}
+.bars.active:first-child::before {
+  top: 50%;
+  transform: rotate(45deg);
+}
+.bars.active:nth-child(3):before {
+  top: 50%;
+  transform: rotate(-45deg);
+}
+.loader::before,
+.loader::after {
   content: '';
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50% , -50%);
+  transform: translate(-50%, -50%);
   width: 48em;
   height: 48em;
-  background-image:
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0);
-  background-position: 0em -18em, 0em 18em, 18em 0em, -18em 0em,
-                       13em -13em, -13em -13em, 13em 13em, -13em 13em;
-    background-repeat: no-repeat;
+  background-image: radial-gradient(circle 10px, #fff 100%, transparent 0),
+    radial-gradient(circle 10px, #fff 100%, transparent 0),
+    radial-gradient(circle 10px, #fff 100%, transparent 0),
+    radial-gradient(circle 10px, #fff 100%, transparent 0),
+    radial-gradient(circle 10px, #fff 100%, transparent 0),
+    radial-gradient(circle 10px, #fff 100%, transparent 0),
+    radial-gradient(circle 10px, #fff 100%, transparent 0),
+    radial-gradient(circle 10px, #fff 100%, transparent 0);
+  background-position: 0em -18em, 0em 18em, 18em 0em, -18em 0em, 13em -13em,
+    -13em -13em, 13em 13em, -13em 13em;
+  background-repeat: no-repeat;
   font-size: 0.5px;
   border-radius: 50%;
   animation: blast 1s ease-in infinite;
@@ -38,19 +98,25 @@
 }
 
 @keyframes bounce {
-  0% , 100%{ font-size: 0.75px }
-  50% { font-size: 1.5px }
+  0%,
+  100% {
+    font-size: 0.75px;
+  }
+  50% {
+    font-size: 1.5px;
+  }
 }
 @keyframes blast {
-  0% , 40% {
+  0%,
+  40% {
     font-size: 0.5px;
   }
   70% {
     opacity: 1;
     font-size: 4px;
   }
-   100% {
-     font-size: 6px;
+  100% {
+    font-size: 6px;
     opacity: 0;
   }
 }

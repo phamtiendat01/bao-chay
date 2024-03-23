@@ -1,26 +1,22 @@
-import { Suspense, useCallback, useState } from "react";
-import { useTranslation } from "react-i18next";
-import Header from "./components/common/header";
-import { Outlet } from "react-router-dom";
-import Loading from "./components/(ui)/loading";
+import { Suspense, useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import Header from './components/common/header';
+import { Outlet } from 'react-router-dom';
+import Loading from './components/(ui)/loading';
 function App() {
-  const [count, setCount] = useState(0);
-  const { t, i18n } = useTranslation("translation");
-  console.log(t);
+  const { t, i18n } = useTranslation('translation');
   const handleChangeLang = useCallback(
     (lang) => {
       i18n.changeLanguage(lang);
-      localStorage.setItem("bao-chay", lang);
+      localStorage.setItem('bao-chay', lang);
     },
     [i18n]
   );
   return (
-    <>
-      <Suspense fallback={<Loading />}>
-        <Header />
-        <Outlet />
-      </Suspense>
-    </>
+    <Suspense fallback={<Loading />}>
+      <Header />
+      <Outlet />
+    </Suspense>
   );
 }
 

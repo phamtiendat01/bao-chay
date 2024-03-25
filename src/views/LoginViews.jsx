@@ -2,9 +2,11 @@ import React, { useRef } from 'react';
 import loginImg from '../assets/login-office-CQRYLh9n.jpeg';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 const LoginViews = () => {
   const { t } = useTranslation('translation');
-  const [_, setUser] = useAuth();
+  const navigate = useNavigate()
+  const [user, setUser] = useAuth();
   const emailRef = useRef();
   const passwordRef = useRef();
   const handleSubmit = (e) => {
@@ -14,6 +16,9 @@ const LoginViews = () => {
         username: emailRef.current.value,
         password: passwordRef.current.value,
       });
+      if(user){
+        navigate('/dashboard', {replace: true})
+      }
     }
   };
   return (

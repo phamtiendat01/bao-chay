@@ -6,7 +6,7 @@ import {
   MdOutlineVideoCameraBack,
 } from 'react-icons/md';
 const DashboardViews = () => {
-  const [currData, setCurrData] = useState('data');
+  // const [currData, setCurrData] = useState('data');
   return (
     <main className='flex flex-col gap-[48px] items-center px-4 py-32'>
       <section className='container'>
@@ -26,18 +26,16 @@ const DashboardViews = () => {
         <div className='flex items-center gap-[24px]'>
           <button
             className='relative py-2 flex items-center gap-2'
-            onClick={() => setCurrData('data')}
+            // onClick={() => setCurrData('data')}
           >
             <MdInsertChartOutlined />
             <p>Biểu đồ dữ liệu</p>
             <span
               style={{ transition: 'width 0.2s ease' }}
-              className={`absolute bottom-0 ${
-                currData === 'data' ? 'w-full' : 'w-0'
-              } h-[2px] bg-orange-500`}
+              className={`absolute bottom-0 w-ful h-[2px] bg-orange-500`}
             ></span>
           </button>
-          <button
+          {/* <button
             className='relative py-2 flex items-center gap-2'
             onClick={() => setCurrData('camera')}
           >
@@ -49,7 +47,7 @@ const DashboardViews = () => {
                 currData === 'camera' ? 'w-full' : 'w-0'
               } h-[2px] bg-orange-500`}
             ></span>
-          </button>
+          </button> */}
         </div>
         <div className='bg-gray-700 px-4 py-8 rounded-xl h-max overflow-hidden'>
           <Chart />

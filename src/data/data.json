@@ -1,0 +1,16 @@
+{
+    "name": {
+        "id": "",
+        "logs": {
+          "temp": {
+            "sign": "",
+            "value": ""
+          },
+          "moisture": {
+            "sign": "",
+            "value": ""
+          }
+        },
+        "date": ""
+    }
+}

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const LoginViews = () => {
   const { t } = useTranslation('translation');
   const navigate = useNavigate()
-  const [user, setUser] = useAuth();
+  const [_, setUser] = useAuth();
   const emailRef = useRef();
   const passwordRef = useRef();
   const handleSubmit = (e) => {
@@ -16,9 +16,9 @@ const LoginViews = () => {
         username: emailRef.current.value,
         password: passwordRef.current.value,
       });
-      if(user){
-        navigate('/dashboard', {replace: true})
-      }
+      emailRef.current.value = ""
+      passwordRef.current.value = ""
+      navigate('/')
     }
   };
   return (

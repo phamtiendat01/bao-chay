@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthProvider';
+import { AuthContext, useAuth } from '../context/AuthProvider';
 export default function ProtectedRoute({ children }) {
-  const { user } = useAuth();
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   useEffect(() => {
-    if (user === null) {
+    if (!user?.username && !user?.password) {
       navigate('/login', { replace: true });
     }
   }, [navigate, user]);

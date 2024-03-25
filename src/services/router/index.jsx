@@ -14,7 +14,7 @@ const routes = [
     ),
     children: [
       {
-        path: 'dashboard',
+        index: true,
         element: <DashboardViews />,
       },
     ],

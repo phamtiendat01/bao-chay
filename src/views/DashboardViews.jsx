@@ -26,7 +26,7 @@ const DashboardViews = () => {
   }, []);
   console.log(data);
   return (
-    <main className="container m-auto flex flex-col gap-8 px-4 py-48">
+    <main className="container m-auto flex flex-col gap-8 px-4 md:px-8 py-48">
       {data?.map((d) => {
         return (
           <section key={d.id} className="flex flex-col gap-4">

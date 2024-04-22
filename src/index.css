@@ -15,10 +15,12 @@
   --white: #fff;
   --light-gray: #d1d5db;
 }
+
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
 }
+
 /* Track */
 ::-webkit-scrollbar-track {
   background: var(--light-gray);
@@ -33,49 +35,16 @@
 
 main {
   min-height: 100vh;
-  background-color: var(--dark-blue);
-  color: var(--white);
 }
 
-.bars::before {
-  position: absolute;
-  content: '';
-  top: 50%;
-  left: 0;
-  width: 26px;
-  height: 3px;
-  transform: rotate(0);
-  transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
-  opacity: 1;
-  z-index: 9999;
-}
-.bars:first-child::before {
-  top: 30%;
-}
-.bars:nth-child(3):before {
-  top: 70%;
-}
-.bars.bars.active:nth-child(2)::before {
-  opacity: 0;
-}
-.bars.active:first-child::before {
-  top: 50%;
-  transform: rotate(45deg);
-}
-.bars.active:nth-child(3):before {
-  top: 50%;
-  transform: rotate(-45deg);
-}
 .loader::before,
 .loader::after {
   content: '';
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 48em;
-  height: 48em;
+  right: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
   background-image: radial-gradient(circle 10px, #fff 100%, transparent 0),
     radial-gradient(circle 10px, #fff 100%, transparent 0),
     radial-gradient(circle 10px, #fff 100%, transparent 0),
@@ -91,6 +60,7 @@ main {
   border-radius: 50%;
   animation: blast 1s ease-in infinite;
 }
+
 .loader::after {
   font-size: 1px;
   background: #fff;
@@ -98,25 +68,58 @@ main {
 }
 
 @keyframes bounce {
+
   0%,
   100% {
     font-size: 0.75px;
   }
+
   50% {
     font-size: 1.5px;
   }
 }
+
 @keyframes blast {
+
   0%,
   40% {
     font-size: 0.5px;
   }
+
   70% {
     opacity: 1;
     font-size: 4px;
   }
+
   100% {
     font-size: 6px;
     opacity: 0;
+  }
+}
+
+
+.bell-icon {
+  animation: rotateIcon 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.2s infinite;
+}
+
+@keyframes rotateIcon {
+  0% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(25deg);
+  }
+
+  50% {
+    transform: rotate(0);
+  }
+
+  75% {
+    transform: rotate(-25deg);
+  }
+
+  100% {
+    transform: rotate(0);
   }
 }

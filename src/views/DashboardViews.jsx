@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getDatabase, ref, child, get } from "firebase/database";
 import { database } from "../services/firebase/config";
 import { ICONS } from "../services/utils/icon";
+import AlertString from "../components/(ui)/alert_string";
 const DashboardViews = () => {
   const [data, setData] = useState();
   const [curDate, setCurDate] = useState();
@@ -65,21 +66,13 @@ const DashboardViews = () => {
       {data?.map((d) => {
         return (
           <section key={d.id} className="flex flex-col gap-4">
-            <div className="relative flex justify-between items-center">
+            <div className="relative flex flex-col md:flex-row gap-2 justify-between md:items-center">
               <h1 className="capitalize text-2xl font-bold text-red-500">
                 {d.key.replace("_", " ")}
               </h1>
-              {/* {d?.logs?.status === 0 ? (
-                <div
-                  className="text-blue-500 bell-icon"
-                  dangerouslySetInnerHTML={{ __html: ICONS.BELL_ICON }}
-                ></div>
-              ) : (
-                <div
-                  className="text-blue-500"
-                  dangerouslySetInnerHTML={{ __html: ICONS.WIFI_ICON }}
-                ></div>
-              )} */}
+                <div className="w-full md:absolute md:h-full md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 flex md:justify-center md:items-center justify-end">
+                  <AlertString temp={d?.logs?.["Temp"]?.value} />
+                </div>
             </div>
             <article className="text-xl flex flex-col md:flex-row justify-center items-center gap-8">
               <div className="w-full md:w-1/2 flex flex-col gap-2">
@@ -94,7 +87,7 @@ const DashboardViews = () => {
                     <path
                       d="M12 21.5C16.1012 21.5 19.5 18.4372 19.5 14.5714C19.5 12.1555 18.2672 9.71249 16.8732 7.70906C15.4698 5.69214 13.8515 4.04821 12.9778 3.21778C12.4263 2.69364 11.5737 2.69364 11.0222 3.21779C10.1485 4.04821 8.53016 5.69214 7.1268 7.70906C5.73282 9.71249 4.5 12.1555 4.5 14.5714C4.5 18.4372 7.8988 21.5 12 21.5Z"
                       stroke="currentColor"
-                      />
+                    />
                     <path
                       d="M12 18C11.4747 18 10.9546 17.8965 10.4693 17.6955C9.98396 17.4945 9.54301 17.1999 9.17157 16.8284C8.80014 16.457 8.5055 16.016 8.30448 15.5307C8.10346 15.0454 8 14.5253 8 14"
                       stroke="currentColor"

@@ -8,7 +8,7 @@ function AlertString({temp}) {
         {temp > 30 && <p className='text-yellow-500'>Cảnh báo!!!</p>}
         {temp <= 30 && <p className='text-emerald-500'>Bình thường</p>}
         {temp <= 10 && <p className='text-sky-500'>Lạnh!!!</p>}
-        {!temp && <p className='text-red-500'>Không có thông tin!!!</p>}
+        {/* {!temp && <p className='text-red-500'>Không có thông tin!!!</p>} */}
     </div>
   )
 }

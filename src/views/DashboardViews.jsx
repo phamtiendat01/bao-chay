@@ -70,9 +70,9 @@ const DashboardViews = () => {
               <h1 className="capitalize text-2xl font-bold text-red-500">
                 {d.key.replace("_", " ")}
               </h1>
-                <div className="w-full md:absolute md:h-full md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 flex md:justify-center md:items-center justify-end">
+              { d?.logs?.["Temp"]?.value && <div className="w-full md:absolute md:h-full md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 flex md:justify-center md:items-center justify-end">
                   <AlertString temp={d?.logs?.["Temp"]?.value} />
-                </div>
+                </div>}
             </div>
             <article className="text-xl flex flex-col md:flex-row justify-center items-center gap-8">
               <div className="w-full md:w-1/2 flex flex-col gap-2">

@@ -15,7 +15,9 @@
   --white: #fff;
   --light-gray: #d1d5db;
 }
-
+html {
+  background-color: #f8f8f8;
+}
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;

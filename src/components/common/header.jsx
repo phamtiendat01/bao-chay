@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../../assets/thong-tin-tuyen-sinh-dai-hoc-cong-nghe-removebg-preview.png'
+import logo from'../../assets/dai-hoc-tai-nguyen-va-moi-truong-3-1.png'
 const Header = () => {
   // const [toggleAside, setToggleAside] = useState(true);
   const scrollElement = () => {

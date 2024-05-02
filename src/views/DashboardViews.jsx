@@ -97,7 +97,7 @@ const DashboardViews = () => {
                 </div>
                 <div className="px-4 py-8 border border-red-300 rounded-md">
                   <p className="flex justify-between items-center">
-                    <span className="text-emerald-500">Độ ẩm</span>
+                    <span className="text-emerald-500">Độ ẩm(%)</span>
                     <span className="text-red-500">
                       {d?.logs?.["Hum"]?.value || "Đang cập nhật..."}
                     </span>
@@ -118,7 +118,7 @@ const DashboardViews = () => {
                 </div>
                 <div className="px-4 py-8 border border-red-300 rounded-md">
                   <p className="flex justify-between items-center">
-                    <span className="text-emerald-500">Nhiệt độ</span>
+                    <span className="text-emerald-500">Nhiệt độ(°C)</span>
                     <span className="text-red-500">
                       {d?.logs?.["Temp"]?.value || "Đang cập nhật..."}
                     </span>

@@ -1,16 +1,23 @@
 import React from 'react'
 
-function AlertString({temp}) {
-  console.log(temp)
+function AlertString({ temp }) {
+  let alertMessage = '';
+
+  if (temp > 40) {
+    alertMessage = 'Phát hiện cháy !!!';
+  } else if (temp > 30 && temp <=40) {
+    alertMessage = 'Cảnh báo cháy nổ !!!';
+  } else {
+    alertMessage = 'Bình thường';
+  }
+
   return (
     <div className='font-bold text-xl'>
-        {temp > 40 && <p className='text-red-500'>Phát hiện cháy !!!</p>}
-        {temp > 30 && <p className='text-yellow-500'>Cảnh báo cháy nổ !!!</p>}
-        {temp <= 30 && <p className='text-emerald-500'>Bình thường</p>}
-        {temp <= 10 && <p className='text-sky-500'>Lạnh!!!</p>}
-        {/* {!temp && <p className='text-red-500'>Không có thông tin!!!</p>} */}
+      <p className={temp > 40 ? 'text-red-500' : temp > 30 ? 'text-yellow-500' : 'text-emerald-500'}>
+        {alertMessage}
+      </p>
     </div>
   )
 }
 
-export default AlertString
+export default AlertString;
